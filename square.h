@@ -1,85 +1,87 @@
 /**
  * @file    square.h
- * The object of the game for my Tik Tak Toe Game
- * @author  Justin Schy
- * @date    September 2020
+ * The header file for the square class
+ * @author Justin Schy
+ * @date September 2020
  */
 
-#ifndef square_H
-#define square_H
+#ifndef TIK_TAK_TOE_SQUARE_H
+#define TIK_TAK_TOE_SQUARE_H
 
 
 class square {
 
-
 private:
-    /**
-     * Holds the Value of the square being open
-     */
-    bool open;
 
     /**
-     * If it is taken, it holds the value of the player who took it
+     * Holds the X value of the square
      */
-    int playerTaken;
+    int X;
 
     /**
-     * The location of the square
+     * Holds the Y value of the square
      */
-    int x;
+    int Y;
 
     /**
-     * the location of the square
+     * Has the value of if the square is open or not
      */
-    int y;
+    bool Open;
+
+    /**
+     * Holds the Player who has the square
+     */
+     int Player;
+
+
 
 
 public:
-
     /**
-     * Default Constructor
-     * @param X the X value of the square
-     * @param Y the Y value of the square
+     * Dafault Constructor
      */
-    square(int X, int Y);
+    square();
 
-
+    // GETTERS
     /**
-    * Getter for the Open Variable
-    * @return the Value (A boolean Value)
-    */
-    bool isOpen() const;
-
-
-
-    /**
-     * Getter for the playerTaken Variable
-     * @return the value(an Integer Value)
-     */
-    int whoHasIt() const;
-
-
-
-    /**
-     * Allows you to change the value of open
-     * @param player the player who took the square
-     */
-    void takeSquare(int player);
-
-    /**
-     * getter for the X value of the square
-     * @return
+     * Gets the value of the X variable
+     * @return the X variable
      */
     int getX() const;
 
     /**
-     * getter for the Y value of the square
-     * @return
+     * Gets the value of the Y variable
+     * @return the Y variable
      */
     int getY() const;
 
+    /**
+     * Gets the value of the Open Variable
+     * @return (T or F)
+     */
+    bool isOpen() const;
+
+    //SETTERS
+
+    /**
+     * Changes the value of Taken, and Adds a player to the variable
+     * @param takenByPlayer the Player who took it
+     */
+    void takeSpace(int takenByPlayer);
+
+    /**
+     * Sets the Location of the block
+     * @param startX X Location
+     * @param startY Y Location
+     */
+    void setLocation(int startX, int startY);
+
+    /**
+     * getter for the player
+     * @return the value of player as an integer
+     */
+    int getPlayer();
+
 
 };
-
-
-#endif //square_H
+#endif //TIK_TAK_TOE_SQUARE_H
