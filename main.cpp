@@ -44,6 +44,12 @@ int CNum(string cInput);
  */
 int changePlayer(int currentPlayer);
 
+/**
+ * Checks to see if the current square has won the game
+ * @return a bool as to wether or not the game is over
+ */
+bool checkWin(square Board[][3], int CurrentC, int CurrentR, int currentPlayer);
+
 
 int main() {
 
@@ -78,16 +84,16 @@ int main() {
 
         C = input.substr(0,1);
         R = input.substr(1,1);
+        cPos = CNum(C);
 
-        if(board[stoi(R) - 1][cPos].isOpen() != 1) {
-            cout << "Spot already Taken"
+        if(board[stoi(R) - 1][cPos].isOpen() == 0) {
+            cout << "Spot already Taken" << endl;
 
         } else {
             turn++;
             cout << turn << endl;
-            changePlayer(currentPlayer);
-            cPos = CNum(C);
             board[stoi(R) - 1][cPos].takeSpace(currentPlayer);
+            currentPlayer = changePlayer(currentPlayer);
             clearConsole();
             printBoard(board,SIZEX,SIZEY);
         }
@@ -145,6 +151,8 @@ int CNum(string cInput) {
 int changePlayer(int currentPlayer) {
     int newPlayer;
 
+    cout << "Changing Players from " << to_string(currentPlayer);
+
     if(currentPlayer == 1) {
         newPlayer = 0;
     } else {
@@ -152,5 +160,10 @@ int changePlayer(int currentPlayer) {
     }
 
     return newPlayer;
+}
+
+bool checkWin(square Board[][3], int currentC, int currentR, int currentPlayer) { //TODO: Make this work.
+
+
 }
 

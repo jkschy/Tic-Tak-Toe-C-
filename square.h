@@ -8,7 +8,6 @@
 #ifndef TIK_TAK_TOE_SQUARE_H
 #define TIK_TAK_TOE_SQUARE_H
 
-
 class square {
 
 private:
@@ -81,6 +80,12 @@ public:
      * @return the value of player as an integer
      */
     int getPlayer();
+
+    /**
+     * Gets the location of the current square
+     * @return the location in a string
+     */
+    std::string getLocation();
 
 
 };

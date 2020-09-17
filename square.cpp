@@ -7,6 +7,7 @@
 
 
 #include <iostream>
+#include <iomanip>
 #include "square.h"
 
 using namespace std;
@@ -47,4 +48,10 @@ void square::setLocation(int startX, int startY) {
 //Returns the value of player as an integer
 int square::getPlayer() {
     return Player;
+}
+
+string square::getLocation() {
+    string output = "(" + to_string(X) + " ," + to_string(Y) + ")";
+
+    return output;
 }
