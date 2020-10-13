@@ -1,52 +1,57 @@
 /**
- * @file    square.h
- * The object of the game for my Tik Tak Toe Game
- * @author  Justin Schy
- * @date    September 2020
+ * @file    square.cpp
+ * The main file for the square class
+ * @author Justin Schy
+ * @date September 2020
  */
 
+
+#include <iostream>
+#include <iomanip>
 #include "square.h"
 
-//Default Constructor
-square::square(int X, int Y) {
-    open = true;
-    playerTaken = -1;
-    x = X;
-    y = Y;
+using namespace std;
+
+
+square::square() {
+    Open = true;
+    Player = 9;
 }
 
-/**
- * Getters
- */
-
-//Getter for the Open Variable
-bool square::isOpen() const {
-    return open;
-}
-
-//Getter for the playerTaken Variable
-int square::whoHasIt() const {
-    return playerTaken;
-}
-
-//Getters for the Location of the Square X and Y
-int square::getY() const {
-    return x;
-}
+//Gets the value of the X variable
 int square::getX() const {
-    return y;
-};
+    return X;
+}
 
+//Gets the value of the Y variable
+int square::getY() const {
+    return Y;
+}
 
+//ets the value of the Open Variable
+bool square::isOpen() const {
+    return Open;
+}
 
-/**
- * Setters
- */
+//Changes the value of Taken, and Adds a player to the variable
+void square::takeSpace(int takenByPlayer) {
+    Open = false;
+    Player = takenByPlayer;
+}
 
-//Setter for both Open and playerTaken
-void square::takeSquare(int player) {
-    if((player  > 0) && (player < 3)) {
-        open = false;
-        playerTaken = player;
-    }
+//Sets the location of the square
+void square::setLocation(int startX, int startY) {
+    X = startX;
+    Y = startY;
+}
+
+//Returns the value of player as an integer
+int square::getPlayer() {
+    return Player;
+}
+
+string square::getLocation() {
+    string output = "(" + to_string(X) + " ," + to_string(Y) + ")";
+
+    return output;
 }
